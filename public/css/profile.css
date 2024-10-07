@@ -1,0 +1,334 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --outerContainerBgCol:#F8F8F8;
+    --InnerContainerBgCol:#f3f3f3;
+    --CommonBtnBgCol:#434A41;
+    --WhiteTxtCol:#F5F5F5;
+    --BlackTxtCol:#686868;
+    --SuccessCol:#4CAB5A;
+    --DangerCol:#E25555;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#profileMainContainer {
+    margin: 25px 10px;
+}
+
+/* profileContainer */
+
+#profileContainer {
+    background-color: var(--outerContainerBgCol);
+    display: flex;
+    flex-direction: row;
+    padding: 40px 20px;
+    justify-content: space-around;
+}
+
+#profilePic {
+    height: 300px;
+    width: 300px;
+    object-fit: cover; 
+    border-radius: 50%;
+    object-position: center center;
+} 
+
+#profileInfoBox{
+    background-color: var(--InnerContainerBgCol); 
+    width: 60%;
+    color: #686868;
+    font-size: 1.5rem;
+    line-height: 2;
+    padding: 5px 10px;
+}
+
+#viewResumeBtn{
+    background-color: var(--CommonBtnBgCol);
+    text-decoration: none;
+    color: var(--WhiteTxtCol);
+    font-size: 1.3rem;
+    padding: 5px 10px;
+}
+
+/* programming languages known section */
+
+#programmingLanguagesContainer{
+    background-color: var(--outerContainerBgCol);
+    padding: 40px 20px;
+    margin: 25px 10px;
+}
+
+#programmingLanguagesInnerContainer{
+    background-color: var(--InnerContainerBgCol);
+    padding: 15px 15px;
+}
+
+#programmingLanguagesInnerContainerBox1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--BlackTxtCol);
+    padding: 10px 5px;
+    border-bottom: 1px solid var(--BlackTxtCol);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+#languageForm{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+#languageForm > input{
+    padding-left: 5px;
+    border: none; 
+}
+
+#languageForm > button{
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--SuccessCol);
+    color: var(--WhiteTxtCol);
+    cursor: pointer;
+}
+
+#languagesContainer{
+    padding: 10px 10px;
+} 
+
+.languages{
+    padding: 5px 10px;
+    background-color: var(--CommonBtnBgCol);
+    color: var(--WhiteTxtCol);
+    margin: 10px 10px; 
+    display: inline-block;
+} 
+
+/* skills section */
+
+#skillsMainContainer{
+    background-color: var(--outerContainerBgCol);
+    padding: 40px 20px;
+    margin: 25px 10px;
+}
+
+#skillsInnerContainer{
+    background-color: var(--InnerContainerBgCol);
+    padding: 15px 15px; 
+}
+
+#skillsInnerContainerBox1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--BlackTxtCol);
+    padding: 10px 5px;
+    border-bottom: 1px solid var(--BlackTxtCol);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+#skillsForm{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+#skillsForm > input{
+    padding-left: 5px;
+    border: none; 
+}
+
+#skillsForm > button{
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--SuccessCol);
+    color: var(--WhiteTxtCol);
+    cursor: pointer;
+}
+
+#skillsContainer{
+    padding: 10px 10px;
+} 
+
+.skills{
+    padding: 5px 10px;
+    background-color: var(--CommonBtnBgCol);
+    color: var(--WhiteTxtCol);
+    margin: 10px 10px; 
+    display: inline-block;
+} 
+
+
+/* project section */
+
+#projectsMainContainer{
+    background-color: var(--outerContainerBgCol);
+    padding: 40px 20px;
+   margin: 25px 10px;
+}
+
+#projectsInnerContainer{
+    background-color: var(--InnerContainerBgCol);
+    padding: 15px 15px; 
+}
+
+#projectsInnerContainerBox1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--BlackTxtCol);
+    padding: 10px 5px;
+    border-bottom: 1px solid var(--BlackTxtCol);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+#projectsAddForm{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+#projectsAddForm > button{
+    padding: 5px 20px;
+    border: none;
+    background-color: var(--SuccessCol);
+    color: var(--WhiteTxtCol);
+    cursor: pointer;
+}
+
+#projectsInnerContainerBox2{
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.projectBox{
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e9e9e9; 
+    margin-bottom: 10px;
+}
+
+.projectName{
+    color: var(--BlackTxtCol);
+}
+
+.projectInnerBox2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    font-size: 1rem;
+}
+
+.projectViewBtn{
+background-color: var(--SuccessCol);
+color: var(--WhiteTxtCol);
+text-decoration: none;
+padding: 5px 10px;
+}
+
+.projectEditBtn{
+background-color: var(--DangerCol);
+color: var(--WhiteTxtCol);
+text-decoration: none;
+padding: 5px 10px;
+}
+
+/* resume section */
+
+.projectsInnerContainerBox3{
+    font-size: 1.3rem; 
+    color: var(--BlackTxtCol);
+    padding: 40px 20px;
+    margin: 25px 10px;
+    background-color: var(--outerContainerBgCol);
+}
+
+#projectsInnerBox1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--BlackTxtCol);
+    padding-bottom: 10px;
+}
+
+#projectsInnerBox1 > button{
+    font-size: 1.1rem; 
+    color: var(--WhiteTxtCol);
+    background-color: var(--SuccessCol);
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+#resumeForm{
+    position: relative;
+}
+
+#projectsInnerBox2{
+    margin-top: 10px;
+    padding: 15px 15px;
+} 
+
+.resumeBox{ 
+    background-color: #EBEBEB;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.resumeBox > button{
+    background-color: var(--DangerCol);
+    color: var(--WhiteTxtCol);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+ 
+#uploadResumeBtn{
+    background-color: var(--SuccessCol);
+    color: var(--WhiteTxtCol);
+    border: none;
+    padding: 5px;
+    position: absolute; 
+    right: 25px;
+    bottom: -15px;
+    cursor: pointer;
+}
+
+/* rewsuem section responsive */
+
+@media only screen and (max-width:600px){
+    html{
+        font-size: 16px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .projectsInnerContainerBox3{
+        margin-bottom: 10px; 
+        font-size: 1.5rem;
+    }
+
+    .resumeBox > input{
+        width: 50%;
+    }
+
+} 

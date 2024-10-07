@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
+</head>
+
+<body>
+    <%- include('includes/navbar.ejs') %>
+
+        <div id="profileMainContainer">
+            <div id="profileContainer">
+                <div id="profileImgBox">
+                    <img src="<%=student.studPic%>" alt="profile photo" id="profilePic">
+                </div>
+                <div id="profileInfoBox">
+                    <p>NAME : <%=student.studName%>
+                    </p>
+                    <p>ENROLLMENT NO : <%=student.studEnrollNo%>
+                    </p>
+                    <div id="profileInnerInfoBox">
+                        <p>COURSE : <%=student.studCourse%>
+                        </p>
+                        <p>YEAR : <%=student.studYear%>
+                        </p>
+                    </div>
+                    <p>BRANCH : <%=student.studBranch%>
+                    </p>
+                    <a href="/profile/<%=student._id%>/resume/view" id="viewResumeBtn">VIEW RESUME</a>
+                </div>
+            </div>
+ 
+        </div>
+
+        <!-- programming languages know section -->
+
+        <div id="programmingLanguagesContainer">
+            <div id="programmingLanguagesInnerContainer">
+                <div id="programmingLanguagesInnerContainerBox1">
+                    <p>PROGRAMMING LANGUAGES KNOWN</p>
+                    <form id="languageForm" action="/profile/<%=student._id%>/programmingLanguages/new" method="post">
+                        <input type="text" name="languages" placeholder="ENTER A LANGUAGE">
+                        <button type="submit">ADD</button>
+                    </form>
+                </div>
+                <div id="programmingLanguagesInnerContainerBox2">
+                    <div id="languagesContainer">
+                        <% for(language of student.programmingLanguages){%>
+                            <span class="languages">
+                                <%=language%>
+                            </span>
+                            <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- skills section -->
+
+        <div id="skillsMainContainer">
+            <div id="skillsInnerContainer">
+                <div id="skillsInnerContainerBox1">
+                    <p>SKILLS</p>
+                    <form id="skillsForm" action="/profile/<%=student._id%>/skills/new" method="post">
+                        <input type="text" name="skills" placeholder="ENTER A SKILL">
+                        <button type="submit">ADD</button>
+                    </form>
+                </div>
+                <div id="skillsInnerContainerBox2"></div>
+                <div id="skillsContainer">
+                    <% for(skill of student.skills){%>
+                        <span class="skills">
+                            <%=skill%>
+                        </span>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- project section -->
+
+        <div id="projectsMainContainer">
+            <div id="projectsInnerContainer">
+                <div id="projectsInnerContainerBox1">
+                    <p>PROJECTS</p>
+                    <form id="projectsAddForm" action="/project/<%=student._id%>/new" method="get">
+                        <button type="submit">ADD</button>
+                    </form>
+                </div>
+                <div id="projectsInnerContainerBox2">
+                    <% for(project of student.projects) {%>
+                        <div class="projectBox">
+                            <div class="projectInnerBox1">
+                                <p class="projectName">
+                                    <%=project.projectName%>
+                                </p>
+                            </div>
+                            <div class="projectInnerBox2">
+                                <a href="/project/<%=project._id%>/view" class="projectViewBtn">VIEW</a>
+                                <a href="/project/<%=project._id%>/edit" class="projectEditBtn">EDIT</a>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+
+        <!-- resume section -->
+
+        <% if(student.studResume.length < 0) {%>
+
+            <div class="projectsInnerContainerBox3">
+                <div id="projectsInnerBox1">
+                    <p>ADD RESUME</p>
+                    <button type="button" id="addProjectImgBtn">ADD</button>
+                </div>
+                <form id="resumeForm" method="post" action="/profile/<%=student._id%>/resume/new"
+                    enctype="multipart/form-data">
+                    <div id="projectsInnerBox2">
+                        <!-- <div class="resumeBox">
+                    <input type="file" name="resumeImgs">
+                    <button type="button">REMOVE</button>
+                </div>    -->
+                    </div> 
+                </form>
+            </div>
+            <%}%>
+                <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+                <script src="/js/navbar.js"></script>
+                <script src="/js/profile.js"></script>
+</body>
+
+</html>

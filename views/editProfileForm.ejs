@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/editProfileForm.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
+</head>
+
+<body>
+    <%- include('includes/navbar.ejs') %>
+        <div id="editProfileMainContainer">
+            <div id="editProfileBox1">
+                <img src="<%=studentInfo.studPic%>" alt="profile pic">
+                <form id="editProfilePicForm" action="/profile/<%=studentInfo._id%>/edit/profilePic?_method=PUT"
+                    method="post" enctype="multipart/form-data">
+                    <input type="file" name="studPic">
+                    <button type="submit">CHANGE DP</button>
+                </form>
+            </div>
+            <form id="editProfileBox2" method="post" action="/profile/<%=studentInfo._id%>/edit/studInfo?_method=PUT">
+                <div class="editProfileInnerBox1">
+                    <p>STUDENT NAME</p>
+                    <input type="text" name="studName" value="<%=studentInfo.studName%>">
+                </div>
+                <div class="editProfileInnerBox2">
+                    <div>
+                        <p>BRANCH</p>
+                        <select name="studBranch" id="studBranch">
+                            <option value="information technology">INFORMATION TECHNOLOGY</option>
+                            <option value="computer engineering">COMPUTER ENGINEERING</option>
+                            <option value="mechanical engineering">MECHANICAL ENGINEERING</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>COURSE</p>
+                        <select name="studCourse" id="studCourse">
+                            <option value="diploma">DIPLOMA</option>
+                            <option value="degree">DEGREE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="editProfileInnerBox3">
+                    <div>
+                        <p>ENROLLMENT NO</p>
+                        <input type="number" name="studEnrollNo" id="studEnrollNo"
+                            value="<%=studentInfo.studEnrollNo%>">
+                    </div>
+                    <div>
+                        <p>YEAR</p>
+                        <select name="studYear" id="studYear">
+                            <option value="FY">FY</option>
+                            <option value="SY">SY</option>
+                            <option value="TY">TY</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="editProfileInnerBox4">
+                    <button type="submit">SAVE CHANGES</button>
+                </div>
+            </form>
+            <div class="editProfileBox3">
+                <div class="editProfileBox3InnerBox1">
+                    <p>PROGRAMMING LANGUAGES KNOWN</p>
+                    <form id="languageForm" action="/profile/<%=studentInfo._id%>/edit/language?_method=PUT"
+                        method="post">
+                        <input type="text" name="language" placeholder="ENTER A LANGUAGE">
+                        <button type="submit">REMOVE</button>
+                    </form>
+                </div>
+                <div class="editProfileBox3InnerBox2">
+                    <div id="languagesContainer">
+                        <% for(language of studentInfo.programmingLanguages) {%>
+                            <span class="languages">
+                                <%=language%>
+                            </span>
+                            <%}%>
+                    </div>
+                </div>
+            </div>
+            <div class="editProfileBox3">
+                <div class="editProfileBox3InnerBox1">
+                    <p>SKILLS</p>
+                    <form id="languageForm" action="/profile/<%=studentInfo._id%>/edit/skill?_method=PUT" method="post">
+                        <input type="text" name="skill" placeholder="ENTER A SKILL">
+                        <button type="submit">REMOVE</button>
+                    </form>
+                </div>
+                <div class="editProfileBox3InnerBox2">
+                    <div id="languagesContainer">
+                        <% for(skill of studentInfo.skills) {%>
+                            <span class="languages">
+                                <%=skill%>
+                            </span>
+                            <%}%>
+                    </div>
+                </div>
+            </div>
+            <div id="editProfileBox4">
+                <div class="editProfileBox4InnerBox1">
+                    <p>PROJECT</p>
+                </div>
+                <div class="editProfileBox4InnerBox2">
+                    <% for(project of studentInfo.projects) {%>
+                        <form class="projectBox" method="post" action="/project/<%=project._id%>/delete?_method=DELETE">
+                            <p>
+                                <%=project.projectName%> 
+                            </p>
+                            <button type="submit">REMOVE</button>
+                        </form>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+        <script>
+            const studentInfo = <%- JSON.stringify(studentInfo) %>
+        </script> 
+        <script src="/js/editProfileForm.js"></script> 
+</body> 
+
+</html>

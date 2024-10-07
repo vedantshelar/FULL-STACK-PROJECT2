@@ -1,0 +1,240 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+:root {
+    --outerContainerBgCol: #F8F8F8;
+    --InnerContainerBgCol: #f3f3f3;
+    --CommonBtnBgCol: #434A41;
+    --WhiteTxtCol: #F5F5F5;
+    --BlackTxtCol: #686868;
+    --SuccessCol: #4CAB5A;
+    --DangerCol: #E25555;
+}
+
+#editProfileMainContainer {
+    border: 1px solid red;
+    padding: 20px 20px;
+    width: 100vw;
+}
+
+#editProfileBox1 {
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    padding: 20px 5px;
+    background-color: var(--outerContainerBgCol);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#editProfileBox1>img {
+    width: 200px;
+    height: 200px;
+    margin-left: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+#editProfilePicForm {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(190, 190, 190);
+    margin-left: 15px;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+#editProfilePicForm>input {
+    color: var(--BlackTxtCol);
+}
+
+#editProfilePicForm>button {
+    background-color: var(--SuccessCol);
+    color: var(--WhiteTxtCol);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#editProfileBox2 {
+    padding: 20px 5px;
+    background-color: var(--outerContainerBgCol);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+#editProfileBox2>div {
+    background-color: var(--InnerContainerBgCol);
+    padding: 10px 15px;
+    font-size: 1.3rem;
+    color: var(--BlackTxtCol);
+}
+
+.editProfileInnerBox1>input {
+    font-size: 1.3rem;
+    color: var(--BlackTxtCol);
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 100%;
+}
+ 
+.editProfileInnerBox2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.editProfileInnerBox2>div {
+    width: 50%;
+}
+
+.editProfileInnerBox2>div>select {
+    font-size: 1.1rem;
+    color: var(--BlackTxtCol);
+    margin-top: 10px;
+    width: 95%;
+}
+
+.editProfileInnerBox3 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.editProfileInnerBox3>div {
+    width: 50%;
+}
+
+.editProfileInnerBox3>div>input {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    width: 95%;
+}
+
+.editProfileInnerBox3>div>select {
+    font-size: 1.1rem;
+    color: var(--BlackTxtCol);
+    margin-top: 10px;
+    width: 95%;
+}
+
+.editProfileInnerBox4>button {
+    background-color: var(--SuccessCol);
+    color: var(--WhiteTxtCol);
+    border: none;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.editProfileBox3 {
+    padding: 20px 5px;
+    background-color: var(--outerContainerBgCol);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+.editProfileBox3InnerBox1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--BlackTxtCol);
+    padding: 10px 5px;
+    border-bottom: 1px solid var(--BlackTxtCol);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+#languageForm {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+#languageForm>input {
+    padding-left: 5px;
+    border: none;
+}
+
+#languageForm>button {
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--DangerCol);
+    color: var(--WhiteTxtCol);
+    cursor: pointer;
+}
+
+
+.editProfileBox3InnerBox2 {
+    padding: 10px 10px;
+}
+
+.languages {
+    padding: 5px 10px;
+    background-color: var(--CommonBtnBgCol);
+    color: var(--WhiteTxtCol);
+    margin: 10px 10px;
+    display: inline-block;
+}
+
+#editProfileBox4 {
+    padding: 20px 5px;
+    background-color: var(--outerContainerBgCol);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+.editProfileBox4InnerBox1 {
+    font-size: 1.3rem;
+    color: var(--BlackTxtCol);
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.editProfileBox4InnerBox2 {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.projectBox {
+    background-color: var(--InnerContainerBgCol);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 5px;
+    font-size: 1.1rem;
+    color: var(--BlackTxtCol);
+}
+
+.projectBox>button {
+    background-color: var(--DangerCol);
+    color: var(--WhiteTxtCol);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

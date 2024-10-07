@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/createNewProjectForm.css">
+    <link rel="stylesheet" href="/css/createNewProjectFormResponsive.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
+</head>
+
+<body>
+    <%- include('includes/navbar.ejs') %>
+
+        <div id="projectMainContainer">
+            <form action="/project/<%=studId%>/new" method="post" enctype="multipart/form-data"
+                id="createNewProjectForm">
+                <div class="createNewProjectFormBox1">
+                    <p>CREATE NEW PROJECT</p>
+                </div> 
+                <div class="createNewProjectFormBox createNewProjectFormBox2">
+                    <p>PROJECT NAME *</p>
+                    <input type="text" name="projectName" required>
+                </div>
+                <div class="createNewProjectFormBox createNewProjectFormBox3">
+                    <p>PROJECT DESCRIPTION *</p> 
+                    <textarea name="projectDescription" required></textarea>
+                </div>
+                <div class="createNewProjectFormBox createNewProjectFormBox4">
+                    <p>PROJECT GIT HUB LINK</p>
+                    <input type="text" name="projetGitHubLink">
+                </div>
+                <div class="createNewProjectFormBox5">
+                    <div id="createNewProjectFormInnerBox1">
+                        <p>PROJECT IMAGES</p>
+                        <button type="button" id="addProjectBtn">ADD</button>
+                    </div>
+                    <div id="createNewProjectFormInnerBox2">
+                        <!-- <div class="projectBox">
+                            <input type="file" name="projectImgs">
+                            <button type="button">REMOVE</button>
+                        </div>   -->
+                    </div>
+                </div>
+                <button type="submit" id="projectCreateBtn">CREATE</button>
+            </form>
+        </div>
+
+        <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/createNewProjectForm.js"></script>
+</body>
+
+</html>

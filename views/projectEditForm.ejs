@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/createNewProjectForm.css">
+    <link rel="stylesheet" href="/css/createNewProjectFormResponsive.css">
+    <!-- <link rel="stylesheet" href="/css/projectEditForm.css"> -->
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
+</head>
+
+<body>
+    <%- include('includes/navbar.ejs') %> 
+
+        <div id="projectMainContainer">
+            <form action="/project/<%=projectInfo._id%>/edit?_method=PUT" method="post" id="createNewProjectForm">
+                <div class="createNewProjectFormBox1">
+                    <p>EDIT PROJECT</p>
+                </div>
+                <div class="createNewProjectFormBox createNewProjectFormBox2">
+                    <p>PROJECT NAME *</p>
+                    <input type="text" name="projectName" value="<%=projectInfo.projectName%>">
+                </div>
+                <div class="createNewProjectFormBox createNewProjectFormBox3">
+                    <p>PROJECT DESCRIPTION *</p>
+                    <textarea name="projectDescription"><%=projectInfo.projectDescription%></textarea>
+                </div> 
+                <div class="createNewProjectFormBox createNewProjectFormBox4">
+                    <p>PROJECT GIT HUB LINK</p>
+                    <input type="text" name="projetGitHubLink" value="<%=projectInfo.projetGitHubLink%>">
+                </div>
+                <div id="editProjectImgs">
+                    <a href="/project/<%=projectInfo._id%>/imgs/edit" id="editProjectImgBtn">EDIT PROJECT IMAGES</a>
+                </div>
+                <button type="submit" id="projectCreateBtn">EDIT</button>
+            </form>
+        </div>
+
+        <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+        <script src="/js/navbar.js"></script>
+</body>
+
+</html> 

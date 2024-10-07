@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/editProjectImgsForm.css">
+</head>
+
+<body>
+    <div id="editProjectImgMainContainer">
+        <div id="editProjectImgContainer1">
+            <p>PROJECT IMAGES</p>
+        </div>
+        <div id="editProjectImgContainer2">
+
+            <!-- <% for(projectImg of projectInfo.projectImgs) {%>
+
+                <div class="editProjectImgBox">
+                    <div class="projectImg">
+                        <img src="<%=projectImg%>" alt="project image">
+                    </div>
+                    <form class="editProjectImgInnnerBox" action="/tes">
+                        <input type="file" name="ved">
+                        <button type="submit">UPLOAD</button>
+                    </form>
+                </div>
+                <%}%> -->
+
+            <% for(let i=0;i<(projectInfo.projectImgs.length);i++) {%>
+                <div class="editProjectImgBox">
+                    <div class="projectImg">
+                        <img src="<%=projectInfo.projectImgs[i]%>" alt="project image">
+                    </div>
+                    <form class="editProjectImgInnnerBox" action="/project/<%=projectInfo._id%>/imgs/<%=i%>/edit"
+                        method="post" enctype="multipart/form-data">
+                        <input type="file" name="editedProjectImg">
+                        <button type="submit">UPLOAD</button>
+                    </form>
+                </div> 
+                <%}%>
+        </div>
+    </div>
+</body>
+
+</html>
