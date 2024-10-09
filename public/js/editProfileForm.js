@@ -2,6 +2,7 @@ let studBranchHtml = document.getElementById('studBranch');
 let studCourseHtml = document.getElementById('studCourse');
 let studYearHtml = document.getElementById('studYear');
 
+
 for (option of studBranchHtml.options) {
     const value = option.value;
     const branchValue = studentInfo.studBranch;

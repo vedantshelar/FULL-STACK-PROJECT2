@@ -99,6 +99,25 @@
                     </div>
                 </div>
             </div>
+            <div id="editResumeSection">
+                <p>EDIT RESUME</p>
+                <% for(let i=0;i < (studentInfo.studResume.length);i++) {%>
+                    <div class="editResumeInnerSecion">
+                        <form class="editResumeSecionForm" action="/profile/<%=studentInfo._id%>/resume/edit/img/<%=i%>?_method=PUT" method="post" enctype="multipart/form-data">
+                            <div class="editResumeSecionFormInnerBox1">
+                                <img src="<%=studentInfo.studResume[i]%>" alt="resume image">
+                            </div>
+                            <div class="editResumeSecionFormInnerBox2">
+                                <input type="file" name="resumeImg">
+                                <button>change</button>
+                            </div>
+                        </form>
+                        <form class="deleteResumeImgForm" action="/profile/<%=studentInfo._id%>/resume/edit/img/<%=i%>?_method=DELETE" method="post"> 
+                            <button class="deleteResumeImgBtn">delete</button>
+                        </form>
+                    </div>
+                    <%}%>
+            </div>
             <div id="editProfileBox4">
                 <div class="editProfileBox4InnerBox1">
                     <p>PROJECT</p>
@@ -107,7 +126,7 @@
                     <% for(project of studentInfo.projects) {%>
                         <form class="projectBox" method="post" action="/project/<%=project._id%>/delete?_method=DELETE">
                             <p>
-                                <%=project.projectName%> 
+                                <%=project.projectName%>
                             </p>
                             <button type="submit">REMOVE</button>
                         </form>
@@ -117,8 +136,8 @@
         </div>
         <script>
             const studentInfo = <%- JSON.stringify(studentInfo) %>
-        </script> 
-        <script src="/js/editProfileForm.js"></script> 
-</body> 
+        </script>
+        <script src="/js/editProfileForm.js"></script>
+</body>
 
 </html>

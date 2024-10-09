@@ -20,7 +20,6 @@ html {
 }
 
 #editProfileMainContainer {
-    border: 1px solid red;
     padding: 20px 20px;
     width: 100vw;
 }
@@ -125,6 +124,7 @@ html {
     font-size: 1.3rem;
     margin-top: 10px;
     width: 95%;
+    color: var(--BlackTxtCol);
 }
 
 .editProfileInnerBox3>div>select {
@@ -237,4 +237,75 @@ html {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+/* eidt resume section */
+
+#editResumeSection{
+    padding: 20px 15px;
+    background-color: var(--outerContainerBgCol);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+#editResumeSection > p{
+    font-size: 1.3rem;
+    color: var(--BlackTxtCol);
+}
+
+.editResumeInnerSecion{
+    background-color: var(--InnerContainerBgCol);
+    margin-bottom: 5px;
+}
+
+.editResumeSecionForm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
+.editResumeSecionFormInnerBox1{
+    margin-right: 30px;
+}
+
+.editResumeSecionFormInnerBox1 > img{
+    width: 100px;
+    height: 100px;
+}
+
+.editResumeSecionFormInnerBox2{
+    border: 1px solid black;
+    display: flex;
+   align-items: center;
+   padding: 5px 10px;
+   border-radius: 30px;
+}
+
+.editResumeSecionFormInnerBox2 > button{
+    background-color:var(--SuccessCol);
+    color: var(--WhiteTxtCol);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.deleteResumeImgForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.deleteResumeImgBtn{
+    background-color: var(--DangerCol);
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: var(--WhiteTxtCol);
+    margin-bottom: 5px;
+    margin-right: 5px;
+    width: 100px;
 }

@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const studentSchema = new mongoose.Schema({
     studName: {
         type: String,
-        lowerCase: true,
+        uppercase: true,
         required: true,
         minLength: 3
     },
     studBranch: {
         type: String,
-        lowerCase: true,
+        lowercase: true,
         required: true,
         enum: ["information technology", "computer engineering", "mechanical engineering"]
     },
     studCourse: {
         type: String,
-        lowerCase: true,
+        lowercase: true,
         required: true,
         enum: ["diploma", "degree"]
     },
@@ -25,7 +25,7 @@ const studentSchema = new mongoose.Schema({
     },
     studYear: {
         type: String,
-        lowerCase: true,
+        uppercase: true,
         required: true,
         enum: ["FY", "SY", "TY"]
     },
