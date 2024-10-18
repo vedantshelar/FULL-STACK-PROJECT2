@@ -34,7 +34,7 @@
                     <a href="/profile/<%=student._id%>/resume/view" id="viewResumeBtn">VIEW RESUME</a>
                 </div>
             </div>
- 
+
         </div>
 
         <!-- programming languages know section -->
@@ -43,10 +43,13 @@
             <div id="programmingLanguagesInnerContainer">
                 <div id="programmingLanguagesInnerContainerBox1">
                     <p>PROGRAMMING LANGUAGES KNOWN</p>
-                    <form id="languageForm" action="/profile/<%=student._id%>/programmingLanguages/new" method="post">
-                        <input type="text" name="languages" placeholder="ENTER A LANGUAGE">
-                        <button type="submit">ADD</button>
-                    </form>
+                        <% if(currUser && currUser.studId==student._id) {%>
+                            <form id="languageForm" action="/profile/<%=student._id%>/programmingLanguages/new"
+                                method="post">
+                                <input type="text" name="languages" placeholder="ENTER A LANGUAGE">
+                                <button type="submit">ADD</button>
+                            </form>
+                            <%}%>
                 </div>
                 <div id="programmingLanguagesInnerContainerBox2">
                     <div id="languagesContainer">
@@ -66,10 +69,12 @@
             <div id="skillsInnerContainer">
                 <div id="skillsInnerContainerBox1">
                     <p>SKILLS</p>
-                    <form id="skillsForm" action="/profile/<%=student._id%>/skills/new" method="post">
-                        <input type="text" name="skills" placeholder="ENTER A SKILL">
-                        <button type="submit">ADD</button>
-                    </form>
+                        <% if(currUser && currUser.studId==student._id) {%>
+                            <form id="skillsForm" action="/profile/<%=student._id%>/skills/new" method="post">
+                                <input type="text" name="skills" placeholder="ENTER A SKILL">
+                                <button type="submit">ADD</button>
+                            </form>
+                            <%}%>
                 </div>
                 <div id="skillsInnerContainerBox2"></div>
                 <div id="skillsContainer">
@@ -89,9 +94,11 @@
             <div id="projectsInnerContainer">
                 <div id="projectsInnerContainerBox1">
                     <p>PROJECTS</p>
-                    <form id="projectsAddForm" action="/project/<%=student._id%>/new" method="get">
-                        <button type="submit">ADD</button>
-                    </form>
+                        <% if(currUser && currUser.studId==student._id) {%>
+                            <form id="projectsAddForm" action="/project/<%=student._id%>/new" method="get">
+                                <button type="submit">ADD</button>
+                            </form>
+                        <%}%>
                 </div>
                 <div id="projectsInnerContainerBox2">
                     <% for(project of student.projects) {%>
@@ -103,7 +110,11 @@
                             </div>
                             <div class="projectInnerBox2">
                                 <a href="/project/<%=project._id%>/view" class="projectViewBtn">VIEW</a>
-                                <a href="/project/<%=project._id%>/edit" class="projectEditBtn">EDIT</a>
+                                <% if(currUser) {%>
+                                     <% if(currUser.studId==student._id) {%>
+                                             <a href="/project/<%=project._id%>/edit" class="projectEditBtn">EDIT</a>
+                                         <%}%>
+                                <%}%>
                             </div>
                         </div>
                         <%}%>
@@ -113,27 +124,30 @@
 
         <!-- resume section -->
 
-        <% if(student.studResume.length == 0) {%>
+        <% if(currUser && currUser.studId==student._id) {%>
 
-            <div class="projectsInnerContainerBox3">
-                <div id="projectsInnerBox1">
-                    <p>ADD RESUME</p>
-                    <button type="button" id="addProjectImgBtn">ADD</button>
-                </div>
-                <form id="resumeForm" method="post" action="/profile/<%=student._id%>/resume/new"
-                    enctype="multipart/form-data">
-                    <div id="projectsInnerBox2">
-                        <!-- <div class="resumeBox">
+            <% if(student.studResume.length==0) {%>
+                <div class="projectsInnerContainerBox3">
+                    <div id="projectsInnerBox1">
+                        <p>ADD RESUME</p>
+                        <button type="button" id="addProjectImgBtn">ADD</button>
+                    </div>
+                    <form id="resumeForm" method="post" action="/profile/<%=student._id%>/resume/new"
+                        enctype="multipart/form-data">
+                        <div id="projectsInnerBox2">
+                            <!-- <div class="resumeBox">
                     <input type="file" name="resumeImgs">
                     <button type="button">REMOVE</button>
                 </div>    -->
-                    </div> 
-                </form>
-            </div>
-            <%}%>
-                <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
-                <script src="/js/navbar.js"></script>
-                <script src="/js/profile.js"></script>
+                        </div>
+                    </form>
+                </div>
+                <%}%>
+
+                    <%}%>
+                        <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+                        <script src="/js/navbar.js"></script>
+                        <script src="/js/profile.js"></script>
 </body>
 
 </html>

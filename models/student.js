@@ -7,6 +7,11 @@ const studentSchema = new mongoose.Schema({
         required: true,
         minLength: 3
     },
+    password: {
+        type:String,
+        required:true,
+        minLength:3 
+    },
     studBranch: {
         type: String,
         lowercase: true,

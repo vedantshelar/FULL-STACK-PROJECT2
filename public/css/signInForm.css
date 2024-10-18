@@ -1,0 +1,75 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#signInMainContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+#signInForm{
+    border: 1px solid rgba(101, 101, 101, 0.572);
+    padding: 20px 10px;
+    border-radius: 10px;
+    background-color: white;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}  
+
+#signInForm > p{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    align-self: flex-start;
+} 
+
+.singInFormCotrolls{
+    margin: 10px 0px;
+    font-size: 1.1rem;
+    color:#686868;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.singInFormCotrolls > input{
+    font-size: 1.3rem;
+    color: #686868;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #686868;
+    padding:5px;
+}
+
+#singInFormSubmitBtn{
+    font-size: 1.3rem;
+    color: white;
+    background-color: rgb(63, 107, 228);
+    border: none;
+    padding: 5px 0px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#createNewAccountBtn{
+    margin-top: 5px;
+}

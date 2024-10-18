@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const app = new express();
+const indexRoutes = require('./routes/indexRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 
@@ -40,21 +41,28 @@ app.use(session({
     saveUninitialized: true
 }))
 
-//route
+// user middleware
 
+app.use((req,res,next)=>{
+    res.locals.currUser = req.session.currUser;
+    next()
+})
+
+//route
+ 
+app.use('/',indexRoutes);  
 app.use('/profile', profileRoutes);
 app.use('/project', projectRoutes);
 
 //api to render index page 
-
+ 
 app.get('/home', (req, res) => {
     res.render('index.ejs');
 })
 
-
-// ERROR HANDLING MIDDLEWARE 
+// ERROR HANDLING MIDDLEWARE   
 
 app.use(async (err, req, res, next) => {
     console.log(err);
-    res.send("error");
+    res.send("error"); 
 }) 

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <%- include('includes/navbar.ejs') %>
+    <!-- <%- include('includes/navbar.ejs') %> -->
 
         <div id="createNewProfileMainContainer">
             <form action="/profile/new" method="post" enctype="multipart/form-data" id="createNewProfileForm">
@@ -21,6 +21,10 @@
                 <div class="createNewProfileFormBox createNewProfileFormBox1">
                     <p>STUDENT NAME</p>
                     <input type="text" name="studName">
+                </div>
+                <div class="createNewProfileFormBox createNewProfileFormBox1">
+                    <p>CREATE PASSWORD</p>
+                    <input type="password" name="password">
                 </div>
                 <div class="createNewProfileFormBox createNewProfileFormBox2">
                     <div>

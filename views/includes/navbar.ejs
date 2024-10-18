@@ -7,9 +7,15 @@
             </div> 
             <div class="headerBox headerBox2"> 
                 <ul id="navbar">
-                    <a href="#" class="navItems">Home</a>
+                    <a href="/home" class="navItems">Home</a>
                     <a href="#" class="navItems">About us</a>
-                    <a href="#" class="navItems">Profile</a>
+                    <% if(currUser) { %>
+                        <a href="/profile/<%=currUser.studId%>" class="navItems">Profile</a>
+                   <% } %>
+                    <a href="/signin" class="navItems">Sign-in</a> 
+                   <% if(currUser) { %>
+                          <a href="/signout" class="navItems">Sign-out</a>
+                    <% } %>
                 </ul>
                 <a href="#" id="filterBtn">Filter</a>
                 <form action="#" method="get" id="headerSearchForm">

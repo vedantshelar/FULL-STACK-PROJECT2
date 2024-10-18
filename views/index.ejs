@@ -1,18 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/navbarResponsive.css">  
+    <link rel="stylesheet" href="css/navbarResponsive.css">
 </head>
+
 <body>
     <%- include('includes/navbar.ejs') %>
-    <h1>home page</h1> 
+        <div class="homePageMainContainer">
+            <% for(student of studentInfo) {%>
+                <div class="homePageProfileBox">
+                    <div class="homePageInnerProfileBox1">
+                        <div class="homePageProfileImgBox">
+                            <img src="<%=student.studPic%>" alt="profilePic" id="homePageProfilePic">
+                        </div>
+                        <div class="homePageProfileInfoBox">
+                            <div class="homePageProfileInnerInfoBox1">
+                                <p>
+                                    <%=student.studName%>
+                                </p>
+                                <div>
+                                    <img src="/assets/heart.webp" alt="" class="heartLogo" width="20px" height="20px">
+                                    3
+                                </div>
+                            </div>
+                            <div class="homePageProfileInnerInfoBox2">
+                                <p>
+                                    <%=student.studYear%>
+                                </p>
+                                <p>
+                                    <%=student.studBranch%>
+                                </p>
+                                <p>
+                                    <%=student.studCourse%>
+                                </p>
+                                <a class="viewProfileBtn" href="/profile/<%=student._id%>">view profile </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="homePageInnerProfileBox2">
+                        <p>SKILLS</p>
+                        <div class="homePageProfileSKillBox">
+                            <% for(skill of student.skills) {%>
+                                <div>
+                                    <p>
+                                        <%=skill%>
+                                    </p>
+                                </div>
+                            <%}%>
 
-    <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
-    <script src="js/navbar.js"></script>
+                            <% if((student.skills.length)==0) {%>
+                                <div>
+                                    <p>
+                                        NOT SPECIFIED
+                                    </p>
+                                </div>
+                            <%}%>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+        <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+        <script src="js/navbar.js"></script>
 </body>
+
 </html>
