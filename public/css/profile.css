@@ -58,6 +58,14 @@ html {
     padding: 5px 10px;
 }
 
+#eidtProfileBtn{
+    background-color: var(--SuccessCol);
+    text-decoration: none;
+    color: var(--WhiteTxtCol);
+    font-size: 1.3rem;
+    padding: 5px 10px;
+}
+
 /* programming languages known section */
 
 #programmingLanguagesContainer{

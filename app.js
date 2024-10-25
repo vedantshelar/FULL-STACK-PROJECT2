@@ -48,17 +48,11 @@ app.use((req,res,next)=>{
     next()
 })
 
-//route
+//route 
  
 app.use('/',indexRoutes);  
 app.use('/profile', profileRoutes);
-app.use('/project', projectRoutes);
-
-//api to render index page 
- 
-app.get('/home', (req, res) => {
-    res.render('index.ejs');
-})
+app.use('/project', projectRoutes); 
 
 // ERROR HANDLING MIDDLEWARE   
 

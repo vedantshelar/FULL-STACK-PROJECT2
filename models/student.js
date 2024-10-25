@@ -4,13 +4,20 @@ const studentSchema = new mongoose.Schema({
     studName: {
         type: String,
         uppercase: true,
-        required: true,
-        minLength: 3
+        required: true
     },
     password: {
-        type:String,
-        required:true,
-        minLength:3 
+        type: String,
+        required: true,
+    },
+    studMobile: {
+        type: String, 
+        validate: {
+            validator: function (v) {
+                return /^\d{10}$/.test(v); // Regex to check exactly 10 digits
+            },
+            message: props => `${props.value} is not a valid mobile number! It must be exactly 10 digits.`,
+        },
     },
     studBranch: {
         type: String,
@@ -38,9 +45,9 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    studResume:[
+    studResume: [
         {
-            type:String
+            type: String
         }
     ],
     programmingLanguages: [{
@@ -49,7 +56,7 @@ const studentSchema = new mongoose.Schema({
     }],
     skills: [{
         type: String,
-        uppercase: true 
+        uppercase: true
     }],
     projects: [{
         type: mongoose.Types.ObjectId,

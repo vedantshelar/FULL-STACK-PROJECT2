@@ -36,9 +36,13 @@
                     <form class="editProjectImgInnnerBox" action="/project/<%=projectInfo._id%>/imgs/<%=i%>/edit"
                         method="post" enctype="multipart/form-data">
                         <input type="file" name="editedProjectImg">
-                        <button type="submit">UPLOAD</button>
+                        <button type="submit">CHANGE</button>
                     </form>
-                </div> 
+                    <form class="editProjectImgInnnerBox" action="/project/<%=projectInfo._id%>/imgs/<%=i%>/edit?_method=DELETE"
+                        method="post">
+                        <button class="editProjectImgDeleteBtn" type="submit">DELETE</button>
+                    </form>  
+                </div>  
                 <%}%>
         </div>
     </div>

@@ -2,6 +2,7 @@ const express = require('express');
 const STUDENT = require('../models/student');
 const PROJECT = require('../models/projects');
 const projectControllers = require('../controllers/projectControllers');
+const authenticationControllers = require('../controllers/authenticationControllers');
 const multer = require('multer');
 const storage = require('../cloudinaryConfiguration');
 const upload = multer({ storage });
@@ -41,8 +42,12 @@ router.get('/:projectId/imgs/edit', projectControllers.editProjectImgsForm);
 
 router.post('/:projectId/imgs/:imgNo/edit', upload.single('editedProjectImg'), projectControllers.saveEditedProjectImgs); 
 
+//api to delete project image
+
+router.delete('/:projectId/imgs/:imgNo/edit',projectControllers.destroySingleProjectImg);
+
 //api to destroy project
 
 router.delete('/:projectId/delete', projectControllers.destroyProject);
 
-module.exports = router; 
+module.exports = router;  

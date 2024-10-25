@@ -26,6 +26,10 @@
                     <p>STUDENT NAME</p>
                     <input type="text" name="studName" value="<%=studentInfo.studName%>">
                 </div>
+                <div class="editProfileInnerBox1">
+                    <p>MOBILE NUMBER</p>
+                    <input type="number" name="studMobile" value="<%=studentInfo.studMobile%>">
+                </div>
                 <div class="editProfileInnerBox2">
                     <div>
                         <p>BRANCH</p>
@@ -57,6 +61,9 @@
                             <option value="TY">TY</option>
                         </select>
                     </div>
+                </div>
+                <div class="editProfileInnerBox1">
+                    <a href="/profile/edit/change/password/otp" id="changePassBtn">change password</a> 
                 </div>
                 <div class="editProfileInnerBox4">
                     <button type="submit">SAVE CHANGES</button>
@@ -138,6 +145,7 @@
             const studentInfo = <%- JSON.stringify(studentInfo) %>
         </script>
         <script src="/js/editProfileForm.js"></script>
+        <script src="js/navbar.js"></script>
 </body>
 
 </html>

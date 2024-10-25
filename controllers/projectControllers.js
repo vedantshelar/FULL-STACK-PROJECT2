@@ -103,6 +103,26 @@ const saveEditedProjectImgs = async (req, res, next) => {
     }
 }
 
+const destroySingleProjectImg = async (req,res,next)=>{
+    try {
+        const projectId = req.params.projectId;
+        const imgNo = req.params.imgNo;
+            let projectInfo = await PROJECT.findById(projectId, { projectImgs: 1 });
+            const projectImgToBeDeleted=  projectInfo.projectImgs[imgNo];
+            projectInfo = await PROJECT.findByIdAndUpdate(projectId,{$pull:{projectImgs:projectImgToBeDeleted}});
+            await projectInfo.save();
+            if(projectInfo){
+                console.log(`${imgNo+1} project image has been deleted`);
+                res.redirect(`/project/${projectId}/imgs/edit`);
+            }else{
+                console.log(`some problem coming while deleting project image ${imgNo}`);
+                res.redirect(`/project/${projectId}/imgs/edit`);
+            }
+    } catch (error) {
+        next(error);  
+    }
+}
+
 const destroyProject = async (req, res, next) => {
     try {
         const projectId = req.params.projectId;
@@ -123,5 +143,6 @@ module.exports = {
     saveEditedProjectInfo:saveEditedProjectInfo,
     editProjectImgsForm:editProjectImgsForm,
     saveEditedProjectImgs:saveEditedProjectImgs,
-    destroyProject:destroyProject
+    destroyProject:destroyProject,
+    destroySingleProjectImg:destroySingleProjectImg
 }

@@ -31,7 +31,12 @@
                     </div>
                     <p>BRANCH : <%=student.studBranch%>
                     </p>
-                    <a href="/profile/<%=student._id%>/resume/view" id="viewResumeBtn">VIEW RESUME</a>
+                    <div>
+                        <a href="/profile/<%=student._id%>/resume/view" id="viewResumeBtn">VIEW RESUME</a>
+                        <% if(currUser && currUser.studId==student._id) {%>
+                            <a href="/profile/<%=student._id%>/edit" id="eidtProfileBtn">EDIT PROFILE</a>
+                        <%}%>
+                    </div>
                 </div>
             </div>
 

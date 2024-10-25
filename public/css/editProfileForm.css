@@ -92,6 +92,10 @@ html {
     padding-left: 5px;
     width: 100%;
 }
+
+#changePassBtn{
+    color: var(--DangerCol);
+}
  
 .editProfileInnerBox2 {
     display: flex;

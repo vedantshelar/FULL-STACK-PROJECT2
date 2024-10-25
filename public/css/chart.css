@@ -1,0 +1,41 @@
+#chartMainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    height: 95vh;
+    margin: 40px auto;
+    row-gap: 20px;
+}
+#chartContainer{
+    width: 90%;
+    height: 550px;
+}
+
+#chartButtonsContainer{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#chartButtonsContainer > button{
+    border: none;
+    padding: 2px 7px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 10px;
+    color: rgb(60, 60, 60);
+}
+
+#chartButtonsContainer > button:nth-child(1){
+    background-color: rgba(97, 218, 255, 0.532);
+}
+
+#chartButtonsContainer > button:nth-child(2){
+    background-color: rgba(239, 57, 142, 0.528);
+}
+
+#chartButtonsContainer > button:nth-child(3){
+    background-color: rgba(97, 255, 142, 0.535);
+}
+

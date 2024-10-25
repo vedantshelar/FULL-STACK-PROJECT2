@@ -77,3 +77,12 @@ html {
     cursor: pointer;
     border-radius: 10px;
 }
+
+.editProjectImgDeleteBtn{
+    background-color: var(--DangerCol) !important;
+    color: var(--WhiteTxtCol);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}

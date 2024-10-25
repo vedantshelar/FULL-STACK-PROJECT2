@@ -9,27 +9,27 @@ const saveNewStudentInfo = async (req, res, next) => {
         req.body.studPic = req.file.path;
         let newStudent = new STUDENT(req.body);
         newStudent = await newStudent.save();
-        if(newStudent){
+        if (newStudent) {
             req.session.currUser = {
                 studId: newStudent._id,
                 studEnrollNo: newStudent.studEnrollNo
             }
             res.redirect(`/profile/${newStudent._id}`);
-        }else{
+        } else {
             console.log("failed to create new account try again");
             res.redirect('/signup');
         }
     } catch (error) {
         next(error);
     }
-}  
- 
+}
+
 
 const profilePage = async (req, res) => {
     const studId = req.params.studId;
     const student = await STUDENT.findById(studId).populate("projects", { projectName: 1 });
     res.render('profile.ejs', { student })
-} 
+}
 
 const editProfileForm = async (req, res, next) => {
     try {
@@ -64,6 +64,7 @@ const saveEditedStudentInfo = async (req, res, next) => {
 
         if (studentInfo) {
             studentInfo.studName = req.body.studName;
+            studentInfo.studMobile = req.body.studMobile;
             studentInfo.studBranch = req.body.studBranch;
             studentInfo.studCourse = req.body.studCourse;
             studentInfo.studEnrollNo = req.body.studEnrollNo;
@@ -236,11 +237,51 @@ const resumeImgsGalleryPage = async (req, res, next) => {
     res.render('resumeImgsGallery.ejs', { resumeImgs });
 }
 
+const renderChangePasswordOtpForm = async (req, res, next) => {
+    if (req.session.sentOtp) {
+        res.locals.sentOtp = req.session.sentOtp;
+        req.session.sentOtp = undefined;
+    } else {
+        console.log('req.session not present');
+        res.locals.sentOtp = undefined;
+    }
+    res.render('changePasswordOtpForm.ejs');
+};
+
+const renderChangePasswordForm = async (req, res, next) => {
+    try {
+        res.render('changePasswordForm.ejs');
+    } catch (error) {
+        next(error);
+    } 
+};
+
+const saveNewPassword = async (req, res, next) => {
+    try {
+        const studId = req.params.studId;
+        const studentInfo = await STUDENT.findById(studId);
+        const oldPassword = req.body.oldPassword;
+        const newPassword = req.body.newPassword;
+
+        if (studentInfo.password === oldPassword) {
+            studentInfo.password = newPassword;
+            await studentInfo.save();
+            console.log('password has been changed successfully!');
+            res.redirect(`/profile/${studId}/edit`);
+        } else {
+            console.log('invalid old password!');
+            res.redirect('/profile/edit/change/password');
+        }
+    } catch (error) {
+        next(error);
+    }
+};
+
 module.exports = {
     createNewProfileForm,
     saveNewStudentInfo,
     profilePage,
-    editProfileForm, 
+    editProfileForm,
     saveEditedProfilePic,
     saveEditedStudentInfo,
     saveEditedProgrammingLanguage,
@@ -250,5 +291,8 @@ module.exports = {
     saveResume,
     saveEditedResumeImgs,
     destroyResumeImg,
-    resumeImgsGalleryPage
+    resumeImgsGalleryPage,
+    renderChangePasswordOtpForm,
+    renderChangePasswordForm,
+    saveNewPassword
 } 
