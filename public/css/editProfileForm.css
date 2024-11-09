@@ -313,3 +313,12 @@ html {
     margin-right: 5px;
     width: 100px;
 }
+
+#deleteUserAccountBtn{
+    background-color: var(--DangerCol);
+    color: var(--WhiteTxtCol);
+    padding: 5px 0px;
+    cursor: pointer;
+    border: none;
+    font-size: 1.3rem;
+}

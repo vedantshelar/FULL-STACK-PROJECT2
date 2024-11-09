@@ -73,8 +73,8 @@ router.get('/edit/change/password/otp', authenticationControllers.isAuthenticate
 
 router.get('/edit/change/password', authenticationControllers.isAuthenticated, profileControllers.renderChangePasswordForm);
 
-//api to save new password
+//api save new password 
 
-router.put('/edit/change/password/:studId', authenticationControllers.isAuthenticated, authenticationControllers.isProfileOwner, profileControllers.saveNewPassword);
+router.put('/:studId/edit/password/forget',authenticationControllers.isAuthenticated,profileControllers.saveNewPassword) 
 
 module.exports = router; 

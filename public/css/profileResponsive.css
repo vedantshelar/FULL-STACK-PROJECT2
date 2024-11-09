@@ -1,0 +1,209 @@
+@media screen and (max-width:1000px) {
+    /* profileContainer */
+
+    #profileContainer {
+        background-color: var(--outerContainerBgCol);
+        display: flex;
+        flex-direction: row;
+        padding: 30px 5px;
+        justify-content: space-around;
+    }
+
+    #profileImgBox {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #profilePic {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        object-position: center center;
+    }
+
+    #profileInfoBox {
+        width: 60%;
+        font-size: 1.3rem;
+        line-height: 2;
+        padding: 5px 5px;
+    }
+
+    #viewResumeBtn {
+        color: var(--WhiteTxtCol);
+        font-size: 1.2rem;
+        padding: 2px 5px;
+    }
+
+    #eidtProfileBtn {
+        color: var(--WhiteTxtCol);
+        font-size: 1.2rem;
+        padding: 2px 5px;
+    }
+
+    /* programming languages known section */
+
+    #programmingLanguagesContainer {
+        padding: 20px 10px;
+        margin: 15px 5px;
+    }
+
+    #programmingLanguagesInnerContainer {
+        padding: 10px 10px;
+    }
+
+    #programmingLanguagesInnerContainerBox1 {
+        font-size: 1.3rem;
+    }
+
+    #languageForm>input {
+        font-size: 1.1rem;
+    }
+
+    #languageForm>button {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+
+    .languages {
+        padding: 5px 10px;
+        margin: 5px 5px;
+        font-size: 1rem;
+    }
+
+    /* skills section */
+
+    #skillsMainContainer {
+        padding: 20px 10px;
+        margin: 15px 5px;
+    }
+
+    #skillsInnerContainer {
+        padding: 10px 10px;
+    }
+
+    #skillsInnerContainerBox1 {
+        font-size: 1.3rem;
+    }
+
+    #skillsForm>input {
+        font-size: 1.1rem;
+    }
+
+    #skillsForm>button {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+
+    #skillsContainer {
+        padding: 10px 10px;
+    }
+
+    .skills {
+        padding: 5px 10px;
+        margin: 5px 5px;
+        font-size: 1rem;
+    }
+
+    /* project section */
+
+    #projectsMainContainer {
+        padding: 20px 10px;
+        margin: 15px 5px;
+    }
+
+    #projectsInnerContainer {
+        padding: 10px 10px;
+    }
+
+    #projectsInnerContainerBox1 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    #projectsAddForm>button {
+        padding: 5px 20px;
+        font-size: 0.9rem;
+    }
+
+    #projectsInnerContainerBox2 {
+        padding: 5px 5px;
+        font-size: 1.2rem;
+    }
+
+    .projectBox {
+        padding: 10px 10px;
+        margin-bottom: 5px;
+    }
+
+    .projectInnerBox2 {
+        column-gap: 5px;
+        font-size: 0.9rem;
+    }
+
+    .projectViewBtn {
+        padding: 5px 10px;
+    }
+
+    .projectEditBtn {
+        padding: 5px 10px;
+    }
+
+}
+
+@media screen and (max-width:650px){
+
+    #profileContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 15px 5px;
+        justify-content: space-around;
+        align-items: center;
+        row-gap: 10px;
+    }
+
+    #profilePic {
+        height: 150px;
+        width: 150px;
+    }
+
+    #profileInfoBox {
+        width: 95%;
+        font-size: 1.3rem;
+        line-height: 2;
+        padding: 5px 5px;
+    }
+}
+
+@media screen and (max-width:450px){
+
+    #programmingLanguagesInnerContainerBox1 {
+       display: flex;
+       flex-direction: column;
+       row-gap: 10px;
+    }
+
+    #languageForm>input {
+        width: 80%;
+    }
+
+    #languageForm>button {
+        width: 20%;
+    }
+
+    #skillsInnerContainerBox1 {
+        display: flex;
+       flex-direction: column;
+       row-gap: 10px;
+    }
+
+    #skillsForm>input {
+        width: 80%;
+    }
+
+    #skillsForm>button {
+        width: 20%;
+    }
+}

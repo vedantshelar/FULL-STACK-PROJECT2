@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/signInForm.css">
+</head>
+<body>
+    <div id="signInMainContainer">
+        <form id="signInForm" action="/admin/signin" method="post">
+            <p>Admin Log in</p>
+            <div class="singInFormCotrolls">
+                <p>Email</p>
+                <input type="email" name="adminEmail" required>
+            </div>
+            <div class="singInFormCotrolls"> 
+                <p>Password</p>
+                <input type="password" name="adminPassword" required>
+            </div>
+            <button type="submit" id="singInFormSubmitBtn">Log in &rarr;</button> 
+            <a href="/admin/signup" id="createNewAccountBtn">create new account</a> 
+        </form>
+    </div>
+</body>
+</html>

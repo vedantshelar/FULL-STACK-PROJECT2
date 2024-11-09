@@ -9,13 +9,23 @@
                 <ul id="navbar">
                     <a href="/home" class="navItems">Home</a>
                     <a href="/chart" class="navItems">Chart</a>
+                    <% if(admin) { %>
+                        <a href="/admin/profile/<%=admin.adminId%>" class="navItems">admin Profile</a>
+                   <% } %>
                     <% if(currUser) { %>
                         <a href="/profile/<%=currUser.studId%>" class="navItems">Profile</a>
                    <% } %>
+                   <% if(admin) {%>
+                    <a href="/admin/signin" class="navItems">Sign-in</a> 
+                <%} else {%>
                     <a href="/signin" class="navItems">Sign-in</a> 
+                    <%}%>
                    <% if(currUser) { %>
                           <a href="/signout" class="navItems">Sign-out</a>
                     <% } %>
+                    <% if(admin) { %>
+                        <a href="/admin/signout" class="navItems">Sign-out</a>
+                  <% } %>
                 </ul>
                 <a href="/filter" id="filterBtn">Filter</a>
                 <form action="#" method="get" id="headerSearchForm">

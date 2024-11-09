@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const studentSchema = new mongoose.Schema({
     studName: {
@@ -9,6 +10,11 @@ const studentSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+    },
+    userType:{
+        type:String,
+        default:'general',
+        required:true
     },
     studMobile: {
         type: String, 
@@ -62,6 +68,39 @@ const studentSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'PROJECT'
     }]
+})
+
+// Query middleware 
+
+studentSchema.post('findOneAndDelete', async (studentInfo) => {
+    const PROJECT = require('./projects');
+    const projectIds = studentInfo.projects;
+    console.log(studentInfo);
+    console.log(projectIds);
+    
+        const temp = await PROJECT.deleteMany({ _id: { $in: projectIds } });
+
+        console.log(temp)
+
+    console.log('student account has been permanetly deleted');
+}); 
+
+// query middleware to has password
+
+studentSchema.pre('save',async function (next){
+ const studentInfo = this;
+
+ if(studentInfo.isModified('password')){
+
+    myPlaintextPassword=this.password;
+    const saltRounds = 4;
+   
+   const hash = await bcrypt.hash(myPlaintextPassword, saltRounds);
+   this.password=hash;
+   next();
+ }else{
+    next();
+ }
 })
 
 const STUDENT = mongoose.model('STUDENT', studentSchema);

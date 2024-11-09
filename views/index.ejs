@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/navbarResponsive.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/indexResponsive.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
 </head>
 
 <body>
@@ -24,22 +25,26 @@
                                 <p>
                                     <%=student.studName%>
                                 </p>
-                                <div>
+                                <!-- <div>
                                     <img src="/assets/heart.webp" alt="" class="heartLogo" width="20px" height="20px">
                                     3
-                                </div>
+                                </div> -->
                             </div>
                             <div class="homePageProfileInnerInfoBox2">
-                                <p class="homePageProfileStudYears">
-                                    <%=student.studYear%>
-                                </p>
-                                <p>
-                                    <%=student.studBranch%>
-                                </p>
-                                <p>
-                                    <%=student.studCourse%>
-                                </p>
-                                <a class="viewProfileBtn" href="/profile/<%=student._id%>">view profile </a>
+                                <div>
+                                    <p class="homePageProfileStudYears">
+                                        <%=student.studYear%>
+                                    </p>
+                                    <p>
+                                        <%=student.studBranch%>
+                                    </p>
+                                    <p>
+                                        <%=student.studCourse%>
+                                    </p>
+                                </div>
+                                <div>
+                                    <a class="viewProfileBtn" href="/profile/<%=student._id%>">view profile </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,8 +72,8 @@
                 <%}%>
         </div>
         <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
-        <script src="js/navbar.js"></script>
-        <script src="js/index.js"></script>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/index.js"></script>
 </body>
 
 </html>

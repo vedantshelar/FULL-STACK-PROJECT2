@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/profileResponsive.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/navbarResponsive.css">
 </head>
@@ -33,8 +34,8 @@
                     </p>
                     <div>
                         <a href="/profile/<%=student._id%>/resume/view" id="viewResumeBtn">VIEW RESUME</a>
-                        <% if(currUser && currUser.studId==student._id) {%>
-                            <a href="/profile/<%=student._id%>/edit" id="eidtProfileBtn">EDIT PROFILE</a>
+                        <% if((currUser && currUser.studId==student._id) || admin) {%>
+                            <a href="/profile/<%=student._id%>/edit" id="eidtProfileBtn">EDIT PROFILE</a> 
                         <%}%>
                     </div>
                 </div>

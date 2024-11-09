@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
+</head>
+
+<body>
+    <%- include('includes/navbar.ejs') %>
+
+        <div id="profileMainContainer">
+            <div id="profileContainer">
+                <div id="profileInfoBox" style="width: 90%;">
+                    <p>EMAIL : <%=adminInfo.adminEmail%>
+                    </p>
+                    <p>MOBILE NO : <%=adminInfo.adminMobileNo%>
+                    </p>
+                    <p>ADMIN TYPE : <%=adminInfo.adminType%>
+                    </p>
+                    <div>
+                        <a href="/admin/profile/<%=adminInfo._id%>/edit" id="eidtProfileBtn">EDIT PROFILE</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</body>
+</html>

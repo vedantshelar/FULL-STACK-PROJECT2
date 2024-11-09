@@ -1,0 +1,196 @@
+@media only screen and (max-width: 1300px) {
+    html {
+        font-size: 16px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    body{
+        font-size: 15px;
+    }
+
+    .homePageProfileBox {
+        padding: 10px 5px;
+        width: 32%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .homePageInnerProfileBox1 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 10px;
+        padding-left: 10px; 
+    }
+
+    .homePageProfileImgBox{
+        width: 95%;
+        border-radius: 50%; 
+        margin-right: 0px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .homePageProfileInnerInfoBox1{
+        border-top: 1px solid rgba(92, 92, 92, 0.459);
+        padding-top: 10px;
+    }
+
+    .homePageProfileInnerInfoBox1 > p{
+        font-size: 1.1rem;
+    }
+
+    .homePageProfileInnerInfoBox2{
+        display: flex;
+        flex-direction: column;
+        column-gap: 0px;
+        row-gap: 20px;
+        font-size: 1rem;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .homePageProfileInnerInfoBox2 > div > p{
+        font-size: 1rem;
+    }
+
+    .homePageProfileInnerInfoBox2>div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: flex-start;
+    }
+
+    .viewProfileBtn {
+        padding: 2px 7px;
+        margin-left: 0px;
+        text-align: center;
+    }
+
+    .homePageInnerProfileBox2{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 10px;
+        padding: 5px 15px;
+    }
+
+    .homePageInnerProfileBox2 > p{
+        font-size: 1.1rem;
+    }
+
+    .homePageProfileSKillBox{
+        flex-wrap: wrap;
+        overflow-y: scroll;
+        height: 40px;
+        margin-left: 5px;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .homePageProfileSKillBox > div{
+        padding: 2px 5px;
+        font-size: 0.7rem;
+        background-color: var(--CommonBtnBgCol);
+        color: var(--WhiteTxtCol);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    html {
+        font-size: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    body{
+        font-size: 14px;
+    }
+    .homePageProfileInnerInfoBox1 > p{
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    html {
+        font-size: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    body{
+        font-size: 14px;
+    }
+    .homePageProfileBox {
+        width: 48%;
+    }
+    .homePageProfileInnerInfoBox1 > p{
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    body{
+        font-size: 16px;
+    }
+    .homePageProfileInnerInfoBox1 > p{
+        font-size: 1.3rem;
+    }
+    .homePageProfileInnerInfoBox2{
+        font-size: 1.3rem;
+    }
+
+    .homePageProfileInnerInfoBox2 > div > p{
+        font-size: 1.3rem;
+    }
+    .viewProfileBtn {
+        font-size: 1.3rem;
+    }
+    .homePageInnerProfileBox2 > p{
+        font-size: 1.3rem;
+    }
+    .homePageProfileSKillBox > div{
+        font-size: 1rem;
+    }
+    .homePageProfileImgBox > img{
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    html {
+        font-size: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    body{
+        font-size: 16px;
+    }
+    .homePageProfileInnerInfoBox1 > p{
+        font-size: 1.4rem;
+    }
+    .homePageProfileInnerInfoBox2{
+        font-size: 1.4rem;
+    }
+
+    .homePageProfileInnerInfoBox2 > div > p{
+        font-size: 1.5rem;
+    }
+
+    .viewProfileBtn {
+        font-size: 1.4rem;
+    }
+    .homePageInnerProfileBox2 > p{
+        font-size: 1.4rem;
+    }
+    .homePageProfileSKillBox > div{
+        font-size: 1.2rem;
+    }
+    .homePageProfileBox {
+        width: 95%;
+    }
+}

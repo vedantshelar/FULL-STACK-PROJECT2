@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/createNewProfileForm.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">   
+</head>
+
+<body>
+    <!-- <%- include('includes/navbar.ejs') %> -->
+
+        <div id="createNewProfileMainContainer">
+            <form action="/admin/new" method="post" id="createNewProfileForm">
+                <div class="createNewProfileFormBox createNewProfileFormBox0">
+                    <p>CREATE NEW ADMIN PROFILE</p>
+                </div>
+                <div class="createNewProfileFormBox createNewProfileFormBox1">
+                    <p>EMAIL</p>
+                    <input type="email" name="adminEmail">
+                </div>
+                <div class="createNewProfileFormBox createNewProfileFormBox1">
+                    <p>CREATE PASSWORD</p> 
+                    <input type="password" name="adminPassword">
+                </div>
+                <div class="createNewProfileFormBox createNewProfileFormBox1">
+                    <p>MOBILE NUMBER</p>
+                    <input type="number" name="adminMobileNo">
+                </div>
+                <button type="submit" id="createNewProfileBtn">CREATE</button> 
+            </form>
+        </div>
+ 
+        <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/createNewProjectForm.js"></script>
+</body>
+
+</html>

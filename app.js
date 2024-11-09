@@ -2,7 +2,7 @@ if (process.env.NODE_ENV != "production") {
     require('dotenv').config();
 }
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); 
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
@@ -11,6 +11,7 @@ const app = new express();
 const indexRoutes = require('./routes/indexRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const projectRoutes = require('./routes/projectRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 app.listen(3000, () => {
     console.log("server is listening to port 3000");
@@ -45,12 +46,14 @@ app.use(session({
 
 app.use((req,res,next)=>{
     res.locals.currUser = req.session.currUser;
+    res.locals.admin = req.session.admin;
     next()
 })
 
 //route 
  
 app.use('/',indexRoutes);  
+app.use('/admin',adminRoutes);
 app.use('/profile', profileRoutes);
 app.use('/project', projectRoutes); 
 

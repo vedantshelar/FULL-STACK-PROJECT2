@@ -103,6 +103,14 @@ html{
     align-items: center;
 }
 
+.homePageProfileInnerInfoBox2 > div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    align-items: center;
+    column-gap: 15px;
+    font-size: 1.1rem;
+}
 .viewProfileBtn{
     background-color: var(--SuccessCol);
     color: var(--WhiteTxtCol);
@@ -120,7 +128,6 @@ html{
     flex-direction: row;
     align-items: flex-start;
     padding: 10px 15px;
-
 }
 
 .homePageInnerProfileBox2 > p{

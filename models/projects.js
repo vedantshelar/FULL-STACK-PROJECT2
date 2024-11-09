@@ -1,4 +1,3 @@
-const STUDENT = require('./student');
 const mongoose = require('mongoose');
 
 const projectSchema = new mongoose.Schema({
@@ -28,12 +27,16 @@ const projectSchema = new mongoose.Schema({
     ]
 });
 
-// Query middleware 
+// // Query middleware 
 
 projectSchema.post('findOneAndDelete', async (projectInfo) => {
+    const STUDENT = require('./student');
     const studId = projectInfo.owner;
     const projectId = projectInfo._id;
-    await STUDENT.findByIdAndUpdate(studId, { $pull: { projects: projectId } });
+    const studentInfo = await STUDENT.findById(studId);
+    if(studentInfo){
+        await STUDENT.findByIdAndUpdate(studId, { $pull: { projects: projectId } });
+    }
 }); 
 
 const PROJECT = mongoose.model("PROJECT", projectSchema);

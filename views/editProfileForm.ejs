@@ -15,11 +15,13 @@
         <div id="editProfileMainContainer">
             <div id="editProfileBox1">
                 <img src="<%=studentInfo.studPic%>" alt="profile pic">
+                <% if(!admin) {%>
                 <form id="editProfilePicForm" action="/profile/<%=studentInfo._id%>/edit/profilePic?_method=PUT"
                     method="post" enctype="multipart/form-data">
-                    <input type="file" name="studPic">
-                    <button type="submit">CHANGE DP</button>
+                        <input type="file" name="studPic">
+                        <button type="submit">CHANGE DP</button>
                 </form>
+                <%}%>
             </div>
             <form id="editProfileBox2" method="post" action="/profile/<%=studentInfo._id%>/edit/studInfo?_method=PUT">
                 <div class="editProfileInnerBox1">
@@ -62,16 +64,18 @@
                         </select>
                     </div>
                 </div>
+                <% if(!admin) {%>
                 <div class="editProfileInnerBox1">
-                    <a href="/profile/edit/change/password/otp" id="changePassBtn">change password</a> 
+                    <a href="/profile/edit/change/password/otp" id="changePassBtn">forget password</a> 
                 </div>
+                <%}%>
                 <div class="editProfileInnerBox4">
                     <button type="submit">SAVE CHANGES</button>
                 </div>
             </form>
             <div class="editProfileBox3">
                 <div class="editProfileBox3InnerBox1">
-                    <p>PROGRAMMING LANGUAGES KNOWN</p>
+                    <p>PROGRAMMING LANGUAGES KNOWN</p> 
                     <form id="languageForm" action="/profile/<%=studentInfo._id%>/edit/language?_method=PUT"
                         method="post">
                         <input type="text" name="language" placeholder="ENTER A LANGUAGE">
@@ -114,10 +118,12 @@
                             <div class="editResumeSecionFormInnerBox1">
                                 <img src="<%=studentInfo.studResume[i]%>" alt="resume image">
                             </div>
+                            <% if(!admin) {%>
                             <div class="editResumeSecionFormInnerBox2">
                                 <input type="file" name="resumeImg">
                                 <button>change</button>
                             </div>
+                            <%}%>
                         </form>
                         <form class="deleteResumeImgForm" action="/profile/<%=studentInfo._id%>/resume/edit/img/<%=i%>?_method=DELETE" method="post"> 
                             <button class="deleteResumeImgBtn">delete</button>
@@ -140,7 +146,12 @@
                         <%}%>
                 </div>
             </div>
-        </div>
+            <% if(admin) {%>
+                <form action="/admin/<%=admin.adminId%>/<%=studentInfo._id%>/delete?_method=DELETE" method="post" id="editProfileBox4">
+                    <button type="submit" id="deleteUserAccountBtn">DELETE USER ACCOUNT</button>
+                </form>
+            <%}%>
+        </div> 
         <script>
             const studentInfo = <%- JSON.stringify(studentInfo) %>
         </script>

@@ -12,7 +12,8 @@ const saveNewStudentInfo = async (req, res, next) => {
         if (newStudent) {
             req.session.currUser = {
                 studId: newStudent._id,
-                studEnrollNo: newStudent.studEnrollNo
+                studEnrollNo: newStudent.studEnrollNo,
+                userType:newStudent.userType
             }
             res.redirect(`/profile/${newStudent._id}`);
         } else {
@@ -258,19 +259,17 @@ const renderChangePasswordForm = async (req, res, next) => {
 
 const saveNewPassword = async (req, res, next) => {
     try {
+        console.log('ok')
         const studId = req.params.studId;
         const studentInfo = await STUDENT.findById(studId);
-        const oldPassword = req.body.oldPassword;
-        const newPassword = req.body.newPassword;
-
-        if (studentInfo.password === oldPassword) {
-            studentInfo.password = newPassword;
+        if(studentInfo){
+            studentInfo.password=req.body.newPassword;
             await studentInfo.save();
-            console.log('password has been changed successfully!');
+            console.log('password has been successfully changed');
             res.redirect(`/profile/${studId}/edit`);
-        } else {
-            console.log('invalid old password!');
-            res.redirect('/profile/edit/change/password');
+        }else{
+            console.log('student not found!');
+            res.redirect(`/profile/edit/change/password`);
         }
     } catch (error) {
         next(error);

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/editProfileForm.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
+</head>
+
+<body>
+    <%- include('includes/navbar.ejs') %>
+    <div id="editProfileMainContainer">
+        <form id="editProfileBox2" method="post" action="/admin/profile/<%=adminInfo._id%>/edit?_method=PUT">
+            <div class="editProfileInnerBox1">
+                <p>EMAIL</p>
+                <input type="email" name="adminEmail" value="<%=adminInfo.adminEmail%>">
+            </div>
+            <div class="editProfileInnerBox1"> 
+                <p>MOBILE NUMBER</p>
+                <input type="number" name="adminMobileNo" value="<%=adminInfo.adminMobileNo%>">
+            </div>
+            <div class="editProfileInnerBox4">
+                <button type="submit">SAVE CHANGES</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
