@@ -19,6 +19,7 @@ html{
     color: #EBEBEB;
     width: 100vw; 
     position: relative;
+    z-index: 1000;
 }
 
 #logo{

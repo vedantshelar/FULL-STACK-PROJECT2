@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const { required } = require('joi');
 
 const studentSchema = new mongoose.Schema({
     studName: {
@@ -24,6 +25,7 @@ const studentSchema = new mongoose.Schema({
             },
             message: props => `${props.value} is not a valid mobile number! It must be exactly 10 digits.`,
         },
+        unique: true
     },
     studBranch: {
         type: String,
@@ -38,8 +40,9 @@ const studentSchema = new mongoose.Schema({
         enum: ["diploma", "degree"]
     },
     studEnrollNo: {
-        type: Number,
-        required: true
+        type: String,
+        required: true,
+        unique: true
     },
     studYear: {
         type: String,
@@ -49,7 +52,8 @@ const studentSchema = new mongoose.Schema({
     },
     studPic: {
         type: String,
-        required: true
+        default:'/assets/profilePic.jpg',
+        require:true
     },
     studResume: [
         {
@@ -81,8 +85,6 @@ studentSchema.post('findOneAndDelete', async (studentInfo) => {
         const temp = await PROJECT.deleteMany({ _id: { $in: projectIds } });
 
         console.log(temp)
-
-    console.log('student account has been permanetly deleted');
 }); 
 
 // query middleware to has password

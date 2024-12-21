@@ -1,0 +1,12 @@
+<%if(success.length>0){%>
+    <div id="messageBox" style="background-color:rgba(0, 128, 0, 0.78);"> 
+        <p><%=success%></p>
+        <i class="fa-solid fa-circle-xmark" style="color: #ffffff;" id="removeMsg"></i>
+    </div>
+<%}%> 
+<%if(error.length>0){%>
+    <div id="messageBox" style="background-color:rgba(254, 19, 19, 0.78);"> 
+        <p><%=error%></p>
+        <i class="fa-solid fa-circle-xmark" style="color: #ffffff;" id="removeMsg"></i>
+    </div>
+<%}%> 

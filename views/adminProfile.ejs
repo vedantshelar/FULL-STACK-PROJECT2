@@ -7,12 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/messageBox.css">
     <link rel="stylesheet" href="/css/navbarResponsive.css">
 </head>
 
 <body>
     <%- include('includes/navbar.ejs') %>
-
+    <%- include('includes/messageBox.ejs') %> 
         <div id="profileMainContainer">
             <div id="profileContainer">
                 <div id="profileInfoBox" style="width: 90%;">
@@ -24,10 +25,16 @@
                     </p>
                     <div>
                         <a href="/admin/profile/<%=adminInfo._id%>/edit" id="eidtProfileBtn">EDIT PROFILE</a>
+                        <%if(adminInfo.adminType=="superAdmin"){%>
+                            <a href="/admin/profile/<%-adminInfo._id%>/validateAdminsAccounts" id="eidtProfileBtn">VERIFY ADMIN ACCOUNTS</a>
+                        <%}%>
                     </div>
                 </div>
             </div>
 
         </div>
+        <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+        <script src="/js/messageBox.js"></script>
+        <script src="/js/navbar.js"></script>
 </body>
 </html>

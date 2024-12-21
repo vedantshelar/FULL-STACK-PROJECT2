@@ -9,7 +9,7 @@ router.get('/signup',adminControlers.renderNewAdminForm);
    
 // api to save new admin info
 
-router.post('/new',adminControlers.saveNewAdminInfo);
+router.post('/new',adminControlers.saveNewTempAdminInfo);
 
 // api to render admin login form
 
@@ -29,13 +29,13 @@ router.get('/signout',adminControlers.adminSignOut);
 
 //api to destroy student account
 
-router.delete('/:adminId/:studId/delete',adminControlers.isAuthenticated,adminControlers.destroyStudentAccount);
+router.delete('/:adminId/:studId/delete',adminControlers.isAuthenticated,adminControlers.isSuperAdmin,adminControlers.destroyStudentAccount);
 
 //api to render admin profile page 
 
 router.get('/profile/:adminId',adminControlers.isAuthenticated,adminControlers.renderAdminProfilePage);
 
-//api to render admin adit profile form
+//api to render admin edit profile form
 
 router.get('/profile/:adminId/edit',adminControlers.isAuthenticated,adminControlers.isAdminProfile,adminControlers.rednerEditAdminProfileForm);
 
@@ -43,7 +43,16 @@ router.get('/profile/:adminId/edit',adminControlers.isAuthenticated,adminControl
 
 router.put('/profile/:adminId/edit',adminControlers.isAuthenticated,adminControlers.isAdminProfile,adminControlers.saveEditedProfileInfo);
 
+//api to verify admin accounts
 
+router.get('/profile/:adminId/validateAdminsAccounts',adminControlers.isAuthenticated,adminControlers.isSuperAdmin,adminControlers.verifyAdminAccounts);
 
+//api to denied admin access
+
+router.get('/:superAdminId/verify/admin/:tempAdminId/reject',adminControlers.isSuperAdmin,adminControlers.denyAdminAccess);
+
+//api to give access to admin as general or super
+ 
+router.get('/:superAdminId/verify/admin/:tempAdminId/:adminType',adminControlers.isAuthenticated,adminControlers.saveNewPermanetAdminInfo);
 
 module.exports = router; 

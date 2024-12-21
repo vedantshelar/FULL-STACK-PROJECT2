@@ -1,0 +1,72 @@
+@media only screen and (max-width:1000px){
+
+    :root{
+        --outerContainerBgCol:#F8F8F8;
+        --InnerContainerBgCol:#f3f3f3;
+        --CommonBtnBgCol:#434A41;
+        --WhiteTxtCol:#F5F5F5;
+        --BlackTxtCol:#686868;
+        --SuccessCol:#4CAB5A;
+        --DangerCol:#E25555;
+    }
+
+    #filterForm{
+        width: 90vw;
+        height: 480px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+        margin: 20px auto;
+    }
+
+    #filterFormContainer1{
+        border-bottom: 1px solid black;
+        width: 95%;
+        font-size: 2.5rem;
+        padding: 5px 10px;
+    }
+
+    .filterFormContainer2InnerContainer{
+        padding: 10px 5px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:flex-start;
+        width: 100%;
+        row-gap: 15px;
+    }
+
+    .filterFormControl{
+        width: 100%;
+    }
+    
+    .filterFormControl > label{
+        font-size: 1.8rem;
+    }
+    
+    .filterFormControl > select{
+        font-size:1.8rem;
+        color:var(--BlackTxtCol);
+        width: 100%;
+    }
+
+    #filterFOrmSubmitBtn{
+        width: 100%;
+        font-size: 1.8rem;
+        background-color: var(--CommonBtnBgCol);
+        color: var(--WhiteTxtCol);
+        border: none;
+        padding: 5px 5px;
+        cursor: pointer;
+    }
+
+}
+
+@media only screen and (max-width:500px){
+    #filterFormContainer2{
+        width: 100%;
+        padding: 10px 10px;
+    }
+}

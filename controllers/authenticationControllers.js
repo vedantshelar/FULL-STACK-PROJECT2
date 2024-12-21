@@ -18,10 +18,10 @@ const loginUser = async (req, res, next) => {
                         userType: studentInfo.userType
                     }
                     req.session.admin = undefined;
-                    console.log("user has been log in");
+                    req.flash("success","user has been log in");
                     next();
                 } else {
-                    console.log('wrong password');
+                    req.flash("error",'wrong password');
                     res.redirect('/signin');
                 }
             }).catch((err) => {
@@ -29,7 +29,7 @@ const loginUser = async (req, res, next) => {
             })
 
         } else {
-            console.log('wrong user credentials');
+            req.flash('error','wrong user credentials');
             res.redirect('/signin');
         }
     } catch (error) {
@@ -41,7 +41,7 @@ const logoutUser = async (req, res, next) => {
     try {
         if (req.session.currUser) {
             req.session.currUser = undefined;
-            console.log("user has been log out");
+            req.flash("success","user has been log out");
             res.redirect('/home');
         }
     } catch (error) {
@@ -64,8 +64,8 @@ const isProfileOwner = async (req, res, next) => {
     else if (req.session.currUser.studId == req.params.studId) {
         next()
     } else {
-        console.log("You are not the owner of this profile");
-        res.redirect('/home');
+        req.flash("error","You are not the owner of this profile");
+        res.redirect('/home'); 
     }
 }
 

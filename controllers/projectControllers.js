@@ -1,5 +1,6 @@
 const STUDENT = require('../models/student');
 const PROJECT = require('../models/projects');
+const validateProjectSchema = require('../schemaValidators/projectSchemaValidator');
 
 
 const createNewProjectForm = (req, res) => {
@@ -22,16 +23,24 @@ const saveNewProjectInfo = async (req, res, next) => {
             req.body.projectImgs = [];
         }
         req.body.owner = studId;
-        let newProjectInfo = new PROJECT(req.body);
-        await newProjectInfo.save();
-        let studentInfo = await STUDENT.findById(studId);
-        studentInfo.projects.push(newProjectInfo._id);
-        await studentInfo.save();
-        console.log("new project info has been saved");
-        res.redirect(`/profile/${studId}`);
+        const { error, value } = validateProjectSchema.validate(req.body);
+
+        if (error) {
+            let errorMsg = error.details[0].message;
+            req.flash("error",errorMsg);
+            res.redirect(`/project/${studId}/new`);
+        } else {
+            let newProjectInfo = new PROJECT(req.body);
+            await newProjectInfo.save();
+            let studentInfo = await STUDENT.findById(studId);
+            studentInfo.projects.push(newProjectInfo._id);
+            await studentInfo.save();
+            req.flash("success", "new project info has been saved");
+            res.redirect(`/profile/${studId}`);  
+        }
     } catch (error) {
-        console.log(error);
-        next(error);
+        req.flash("error", "Error in project creation");
+        res.redirect(`/profile/${studId}`);
     }
 
 }
@@ -69,7 +78,7 @@ const saveEditedProjectInfo = async (req, res, next) => {
         projectInfo.projectDescription = req.body.projectDescription;
         projectInfo.projetGitHubLink = req.body.projetGitHubLink;
         await projectInfo.save();
-        console.log("project info has been edited");
+        req.flash("success", "project info has been edited");
         res.redirect(`/project/${projectId}/edit`);
     } catch (error) {
         next(error);
@@ -93,9 +102,10 @@ const saveEditedProjectImgs = async (req, res, next) => {
             let projectInfo = await PROJECT.findById(projectId, { projectImgs: 1 });
             projectInfo.projectImgs[imgNo] = req.file.path;
             await projectInfo.save();
+            req.flash("success", "project image has been updated");
             res.redirect(`/project/${projectId}/imgs/edit`);
         } else {
-            console.log("please select image");
+            req.flash("error", "please select image");
             res.redirect(`/project/${projectId}/imgs/edit`);
         }
     } catch (error) {
@@ -112,10 +122,10 @@ const destroySingleProjectImg = async (req, res, next) => {
         projectInfo = await PROJECT.findByIdAndUpdate(projectId, { $pull: { projectImgs: projectImgToBeDeleted } });
         await projectInfo.save();
         if (projectInfo) {
-            console.log(`${imgNo + 1} project image has been deleted`);
+            req.flash('success', `${imgNo + 1} project image has been deleted`);
             res.redirect(`/project/${projectId}/imgs/edit`);
         } else {
-            console.log(`some problem coming while deleting project image ${imgNo}`);
+            req.flash('error', `some problem coming while deleting project image ${imgNo}`);
             res.redirect(`/project/${projectId}/imgs/edit`);
         }
     } catch (error) {
@@ -133,12 +143,12 @@ const destroyProject = async (req, res, next) => {
         // if (studentInfo) {
         //     await STUDENT.findByIdAndUpdate(studId, { $pull: { projects: projectId } });
         // }
-        console.log("project has been destroyed");
+        req.flash("success", "project has been destroyed");
         res.redirect(`/profile/${projectInfo.owner}/edit`)
     } catch (error) {
-        next(error); 
+        next(error);
     }
-} 
+}
 
 module.exports = {
     createNewProjectForm: createNewProjectForm,

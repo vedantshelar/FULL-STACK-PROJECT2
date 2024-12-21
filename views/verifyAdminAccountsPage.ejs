@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/verifyAdminAccountsPage.css"> 
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/messageBox.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
+</head>
+
+<body>
+    <%- include('includes/navbar.ejs') %>
+    <%- include('includes/messageBox.ejs') %>
+
+    <div class="verifyAdminAccountsContainer">
+        <h2 class="">Verify Admin Accounts</h2>
+        <%if(tempAdminInfo.length==0){%>
+            <p>No Pending Accounts</p>
+        <%}%>
+        <%for(tempAdmin of tempAdminInfo){%>
+            <div class="verifyAdminAccountsBox">
+                <div class="verifyAdminAccountsInnerBox verifyAdminAccountsInnerBox1">
+                    <p>Email : <%=tempAdmin.adminEmail%></p>
+                    <p>Mobile No : <%=tempAdmin.adminMobileNo%></p>
+                </div>
+                <div class="verifyAdminAccountsInnerBox verifyAdminAccountsInnerBox2">
+                    <button class="generalAdminBtn"> <a href="/admin/<%=admin.adminId%>/verify/admin/<%=tempAdmin._id%>/general">Grant As General</a></button>
+                    <button class="superAdminBtn"><a href="/admin/<%=admin.adminId%>/verify/admin/<%=tempAdmin._id%>/super">Grant As Super</a></button>
+                    <button class="rejectAdminAccess"><a href="/admin/<%=admin.adminId%>/verify/admin/<%=tempAdmin._id%>/reject">Reject</a></button>
+                </div>
+            </div>
+        <%}%>
+    </div>
+
+
+            <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+            <script src="/js/messageBox.js"></script>
+            <script src="/js/navbar.js"></script>
+</body>
+
+</html>

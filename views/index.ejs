@@ -7,12 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/indexResponsive.css">
+    <link rel="stylesheet" href="/css/messageBox.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/navbarResponsive.css">
 </head>
 
 <body>
     <%- include('includes/navbar.ejs') %>
+    <%- include('includes/messageBox.ejs') %> 
         <div class="homePageMainContainer">
             <% for(student of studentInfo) {%>
                 <div class="homePageProfileBox">
@@ -74,6 +76,7 @@
         <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
         <script src="/js/navbar.js"></script>
         <script src="/js/index.js"></script>
+        <script src="/js/messageBox.js"></script>
 </body>
 
 </html>

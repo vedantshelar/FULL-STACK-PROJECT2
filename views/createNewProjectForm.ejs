@@ -7,13 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/createNewProjectForm.css">
     <link rel="stylesheet" href="/css/createNewProjectFormResponsive.css">
+    <link rel="stylesheet" href="/css/messageBox.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/navbarResponsive.css">
 </head>
 
 <body>
     <%- include('includes/navbar.ejs') %>
-
+    <%- include('includes/messageBox.ejs') %> 
         <div id="projectMainContainer">
             <form action="/project/<%=studId%>/new" method="post" enctype="multipart/form-data"
                 id="createNewProjectForm">
@@ -51,6 +52,7 @@
         <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
         <script src="/js/navbar.js"></script>
         <script src="/js/createNewProjectForm.js"></script>
+        <script src="/js/messageBox.js"></script>
 </body>
 
 </html>

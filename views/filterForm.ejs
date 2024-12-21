@@ -5,44 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/navbarResponsive.css">
+    <link rel="stylesheet" href="/css/filterForm.css">
+    <link rel="stylesheet" href="/css/filterFormResponsive.css">
+    <link rel="stylesheet" href="/css/messageBox.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbarResponsive.css">
 </head>
 
 <body>
     <%- include('includes/navbar.ejs') %>
-
-        <form action="/filter" method="post">
-            <label for="studCourse">COURSE</label>
-            <select name="studCourse" id="studCourse">
-                <option value="diploma">diploma</option>
-                <option value="degree">degree</option>
-                <option value="all">all</option>
-            </select> <br>
-            <label for="studBranch">BRANCH</label>
-            <select name="studBranch" id="studBranch">
-                <option value="information technology">information technology</option>
-                <option value="computer engineering">computer engineering</option>
-                <option value="mechanical engineering">mechanical engineering</option>
-                <option value="all">all</option>
-            </select><br>
-            <label for="studYear">YEAR</label>
-            <select name="studYear" id="studYear">
-                <option value="FY">FY</option>
-                <option value="SY">SY</option>
-                <option value="TY">TY</option>
-                <option value="all">all</option>
-            </select><br>
-            <label for="studSkill">SKILL</label>
-            <select name="studSkill" id="studSkill">
-                <% for(skill of skills) {%>
-                    <option value="<%=skill%>">
-                        <%=skill%>
-                    </option>
-                    <%}%>
-            </select><br>
-            <button type="submit">APPLY FILTER</button>
-        </form>
-</body>
+    <%- include('includes/messageBox.ejs') %> 
+        <form action="/filter" method="post" id="filterForm">
+            <div id="filterFormContainer1">
+                <p>Filter</p>
+            </div>
+            <div id="filterFormContainer2">
+                <div class="filterFormContainer2InnerContainer">
+                    <div class="filterFormControl filterFormControl1">
+                        <label for="studCourse">COURSE</label>
+                        <select name="studCourse" id="studCourse">
+                            <option value="diploma">diploma</option>
+                            <option value="degree">degree</option>
+                            <option value="all">all</option>
+                        </select> 
+                    </div>
+                    <div class="filterFormControl filterFormControl2">
+                        <label for="studBranch">BRANCH</label>
+                        <select name="studBranch" id="studBranch">
+                            <option value="information technology">information technology</option>
+                            <option value="computer engineering">computer engineering</option>
+                            <option value="mechanical engineering">mechanical engineering</option>
+                            <option value="all">all</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filterFormContainer2InnerContainer">
+                    <div class="filterFormControl filterFormControl3">
+                        <label for="studYear">YEAR</label>
+                        <select name="studYear" id="studYear">
+                            <option value="FY">FY</option>
+                            <option value="SY">SY</option>
+                            <option value="TY">TY</option>
+                            <option value="all">all</option>
+                        </select>
+                    </div>
+                    <div class="filterFormControl filterFormControl4">
+                        <label for="studSkill">SKILL</label>
+                        <select name="studSkill" id="studSkill">
+                            <% for(skill of skills) {%>
+                                <option value="<%=skill%>">
+                                    <%=skill%>
+                                </option>
+                                <%}%>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" id="filterFOrmSubmitBtn">APPLY FILTER</button>
+            </div>
+        </form> 
+        <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/messageBox.js"></script>
+</body> 
 
 </html>

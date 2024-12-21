@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/createNewProfileForm.css">
+    <link rel="stylesheet" href="/css/messageBox.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/navbarResponsive.css">   
 </head>
 
 <body>
-    <!-- <%- include('includes/navbar.ejs') %> -->
+    <%- include('includes/navbar.ejs') %>
+    <%- include('includes/messageBox.ejs') %> 
 
         <div id="createNewProfileMainContainer">
             <form action="/profile/new" method="post" enctype="multipart/form-data" id="createNewProfileForm">
@@ -63,7 +65,7 @@
                 </div>
                 <div class="createNewProfileFormBox createNewProfileFormBox4">
                     <p>UPLOAD YOUR PROFILE PHOTO</p>
-                    <input type="file" name="studPic">
+                    <input type="file" name="studPic" required>
                 </div>
                 <button type="submit" id="createNewProfileBtn">CREATE</button> 
             </form>
@@ -72,6 +74,7 @@
         <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
         <script src="/js/navbar.js"></script>
         <script src="/js/createNewProjectForm.js"></script>
+        <script src="/js/messageBox.js"></script>
 </body>
 
 </html>

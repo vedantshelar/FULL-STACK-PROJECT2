@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt');
 const adminSchema = mongoose.Schema({
 adminEmail:{
     type:String,
-    required:true
+    required:true,
+    unique: true
 },
 adminPassword:{
     type:String,
@@ -17,7 +18,7 @@ adminType:{
     default:'generalAdmin'
 },
 adminMobileNo:{
-    type:Number,
+    type:String,
     required:true,
     validate:{
         validator:function(v){
@@ -26,28 +27,11 @@ adminMobileNo:{
         message:function(v){
             return `${v} must be 10 digit`
         }
-    }
+    },
+    unique: true
 }
 });
-
-// query middleware to has password
-
-adminSchema.pre('save',async function (next){
-    const adminInfo = this;
-   console.log(adminInfo)
-    if(adminInfo.isModified('adminPassword')){
-   
-       let myPlaintextPassword=adminInfo.adminPassword;
-       const saltRounds = 4;
-      
-      const hash = await bcrypt.hash(myPlaintextPassword, saltRounds);
-      adminInfo.adminPassword=hash;
-      console.log(adminInfo.adminPassword)
-      next();
-    }else{
-       next();
-    } 
-   })
+ 
 
 const ADMIN = mongoose.model('ADMIN',adminSchema);
 

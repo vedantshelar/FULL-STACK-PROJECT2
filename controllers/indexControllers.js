@@ -71,7 +71,7 @@ const displayFilterResult = async (req, res, next) => {
         if (studentInfo.length > 0) {
             res.render('index.ejs', { studentInfo });
         } else {
-            console.log("no shuch match exist")
+            req.flash("error","no shuch match exist")
             res.redirect('/filter');
         }
     } catch (error) {
@@ -140,7 +140,7 @@ const sendOtpToChangePassword = async (req, res, next) => {
         }
 
         req.session.sentOtp = generateOTP().toString();
-        console.log("OTP has been sent to your register mobile number!");
+        req.flash("success","OTP has been sent to your register mobile number!");
         res.redirect(`/profile/edit/change/password/otp`);
 
         // below code is to send actual otp on user mobile
@@ -187,7 +187,8 @@ const sendOtpToChangePassword = async (req, res, next) => {
         // })
 
     } catch (error) {
-        next(error);
+        req.flash("error","error in sending opt to your register mobile number")
+        next(error); 
     }
 }
 

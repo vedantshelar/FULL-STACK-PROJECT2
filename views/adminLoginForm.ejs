@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/signInForm.css">
+    <link rel="stylesheet" href="/css/messageBox.css">
 </head>
 <body>
+    <%- include('includes/messageBox.ejs') %> 
     <div id="signInMainContainer">
         <form id="signInForm" action="/admin/signin" method="post">
             <p>Admin Log in</p>
@@ -22,5 +24,7 @@
             <a href="/admin/signup" id="createNewAccountBtn">create new account</a> 
         </form>
     </div>
+    <script src="https://kit.fontawesome.com/7e49fc305e.js" crossorigin="anonymous"></script>
+    <script src="/js/messageBox.js"></script>
 </body>
 </html>

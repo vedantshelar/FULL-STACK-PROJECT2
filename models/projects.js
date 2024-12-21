@@ -1,3 +1,4 @@
+const { required } = require('joi');
 const mongoose = require('mongoose');
 
 const projectSchema = new mongoose.Schema({
@@ -11,17 +12,18 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true,
         lowercase: true,
-        minLength: 5
+        minLength: 5,
+        required:true
     },
     projetGitHubLink: {
-        type: String
+        type: String 
     },
     owner: {
         type: mongoose.Types.ObjectId,
         ref: 'STUDENT'
     },
     projectImgs: [
-        {
+        { 
             type: String
         }
     ]
